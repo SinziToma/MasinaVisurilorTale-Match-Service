@@ -107,7 +107,7 @@ defmodule Matches.Router do
 
     conn
     |> put_resp_content_type("application/json")
-    |> send_resp(201, Poison.encode!(%{:profiles => profile}))
+    |> send_resp(201, Poison.encode!(profile))
   end
 
 
