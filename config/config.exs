@@ -18,14 +18,14 @@ config :matches,
 
 config :matches, Matches.Repo,
   adapter: Ecto.Adapters.MySQL,
-#  database: "bFkGaLnTkJ",
-#  username: "bFkGaLnTkJ",
-#  password: "UIbIg12jN1",
-#  hostname: "remotemysql.com"
-  database: "masina_visurilor_tale",
-  username: "root",
-  password: "",
-  hostname: "localhost"
+  database: "bFkGaLnTkJ",
+  username: "bFkGaLnTkJ",
+  password: "uyjO5qz7n2",
+  hostname: "remotemysql.com"
+#  database: "masina_visurilor_tale",
+#  username: "root",
+#  password: "",
+#  hostname: "localhost"
 
 config :matches, ecto_repos: [Matches.Repo]
 
