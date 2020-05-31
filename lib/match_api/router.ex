@@ -158,31 +158,6 @@ defmodule Matches.Router do
           MatchDateTime: match_date_time
         } |> Matches.Repo.insert do
           {:ok, new_match} ->
-            matched_contact_id = Matches.Repo.one(
-              from d in Matches.Match,
-              select: d."MatchedContactId",
-              where: (d."FirstProfileId" == ^current_profile_id and d."SecondProfileId" == ^liked_profile_id)
-              or (d."SecondProfileId" == ^current_profile_id and d."FirstProfileId" == ^liked_profile_id)
-            )
-
-            rabbit_url = Application.get_env(:matches, :rabbitmq_host)
-            Logger.debug inspect(rabbit_url)
-
-            # AMQP.Connection.open
-            # AMQP.Connection.open(options, :undefined)
-            case AMQP.Connection.open(rabbit_url) do
-              {:ok, connection} ->
-                case AMQP.Channel.open(connection) do
-                  {:ok, channel} ->
-                  AMQP.Queue.declare(channel, "matched_contact_id_#{matched_contact_id}")
-                  AMQP.Connection.close(connection)
-                  {:error, unkown_host} ->
-                  Logger.debug inspect(unkown_host)
-              :error ->
-                Logger.debug inspect("AMQP connection coould not be established")
-                end
-            end
-
             conn
             |> put_resp_content_type("application/json")
             |> send_resp(201, Poison.encode!(%{:data => new_match}))
