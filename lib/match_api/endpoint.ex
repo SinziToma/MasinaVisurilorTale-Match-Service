@@ -14,6 +14,7 @@ defmodule Matches.Endpoint do
     json_decoder: Poison
   )
 #  plug Profiles.AuthPlug
+  plug CORSPlug, origin: "*"
   plug(:dispatch)
 
   forward("/match", to: Matches.Router)
