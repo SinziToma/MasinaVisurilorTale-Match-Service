@@ -33,7 +33,8 @@ defmodule Matches.MixProject do
 #      {:myxql, "~> 0.3.0"},
       {:ecto, "~> 2.0"},
       {:mariaex, "~> 0.7"},
-      {:amqp, "~> 1.0"}
+      {:amqp, "~> 1.0"},
+      {:cors_plug, "~> 1.5"}
     ]
   end
 end

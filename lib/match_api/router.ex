@@ -18,6 +18,7 @@ defmodule Matches.Router do
 
   plug(:match)
 #  plug Profiles.AuthPlug
+  plug CORSPlug, origin: "*"
   plug(:dispatch)
 
   post "/get-matches-by-profile-id" do
