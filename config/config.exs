@@ -20,7 +20,7 @@ config :matches, Matches.Repo,
   adapter: Ecto.Adapters.MySQL,
   database: "bFkGaLnTkJ",
   username: "bFkGaLnTkJ",
-  password: "uyjO5qz7n2",
+  password: "VSsoOzmSMY",
   hostname: "remotemysql.com"
 #  database: "masina_visurilor_tale",
 #  username: "root",
