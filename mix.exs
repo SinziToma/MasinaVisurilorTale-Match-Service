@@ -34,8 +34,7 @@ defmodule Matches.MixProject do
       {:ecto, "~> 2.0"},
       {:mariaex, "~> 0.7"},
       {:amqp, "~> 1.0"},
-      {:cors_plug, "~> 1.5"},
-      {:httpotion, "~> 3.1.0"},
+      {:cors_plug, "~> 1.5"}
     ]
   end
 end

@@ -34,4 +34,8 @@ defmodule Matches.AuthPlug do
                 end
         end
   end
+
+  defp forbidden(conn) do
+    send_resp(conn, 401, "Unauthorized!") |> halt
+  end
 end
